@@ -6,6 +6,7 @@ import com.ai.cricket.bot.service.ChatService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,6 +19,8 @@ public class CricketBotController {
 
     @Autowired
     private ChatService chatService;
+
+    @GetMapping("/chat")
 
     public ResponseEntity getResponse(@RequestParam (name="inputText") String inputText) throws IOException {
         return  ResponseEntity.ok(chatService.getResponse(inputText));
